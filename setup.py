@@ -1,5 +1,9 @@
 from distutils.core import setup, Extension
 import commands
+import os
+
+# Fix PKG_CONFIG_PATH for CLD
+os.environ["PKG_CONFIG_PATH"] = "$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig/"
 
 def pkgconfig(*packages, **kw):
     flag_map = {'-I': 'include_dirs', '-L': 'library_dirs', '-l': 'libraries'}
